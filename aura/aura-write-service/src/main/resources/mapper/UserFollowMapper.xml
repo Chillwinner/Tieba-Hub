@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aura.mapper.UserFollowMapper">
+
+    <insert id="insert">
+        INSERT INTO user_follow (id, user_id, author_id, create_time)
+        VALUES (#{id}, #{userId}, #{authorId}, #{createTime})
+    </insert>
+
+    <select id="findByUserAndAuthor" resultType="com.aura.entity.UserFollow">
+        SELECT * FROM user_follow WHERE user_id = #{userId} AND author_id = #{authorId}
+    </select>
+
+    <select id="findByUserId" resultType="com.aura.entity.UserFollow">
+        SELECT * FROM user_follow WHERE user_id = #{userId} ORDER BY create_time DESC
+    </select>
+
+    <select id="findByAuthorId" resultType="com.aura.entity.UserFollow">
+        SELECT * FROM user_follow WHERE author_id = #{authorId} ORDER BY create_time DESC
+    </select>
+
+    <delete id="delete">
+        DELETE FROM user_follow WHERE user_id = #{userId} AND author_id = #{authorId}
+    </delete>
+
+</mapper>

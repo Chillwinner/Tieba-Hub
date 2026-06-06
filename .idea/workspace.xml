@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="502a2b92-9d42-48db-b31e-a88db6b3b2bd" name="更改" comment="Revert &quot;已完成所有基础功能&quot;&#10;&#10;This reverts commit a1e26fe0">
+      <change beforePath="$PROJECT_DIR$/project/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/main/java/com/Reddit/Controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/com/Reddit/Controller/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/main/java/com/Reddit/Interceptor/JwtTokenInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/com/Reddit/Interceptor/JwtTokenInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/main/java/com/Reddit/Mapper/PostMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/com/Reddit/Mapper/PostMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/main/java/com/Reddit/Mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/com/Reddit/Mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/main/java/com/Reddit/Service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/com/Reddit/Service/CategoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/main/java/com/Reddit/Service/CommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/com/Reddit/Service/CommentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/main/java/com/Reddit/Service/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/com/Reddit/Service/PostService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/main/java/com/Reddit/Service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/com/Reddit/Service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/main/java/com/Reddit/Utils/AliOssUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/com/Reddit/Utils/AliOssUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/main/java/com/Reddit/Utils/JwtUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/com/Reddit/Utils/JwtUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/main/java/com/Reddit/Utils/Md5Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/com/Reddit/Utils/Md5Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/main/java/com/Reddit/config/WebMvcConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/com/Reddit/config/WebMvcConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/main/java/com/Reddit/entity/PostCreateDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/com/Reddit/entity/PostCreateDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/resources/application.yml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+        <option name="userSettingsFile" value="D:\intellij\apache-maven-3.9.11-bin\apache-maven-3.9.11\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="390dBFHy3MXSXiOmHzvav3jNLiA" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="sortKey" value="BY_TIME_DESCENDING" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.AuraApplication (1).executor": "Run",
+    "Spring Boot.AuraApplication.executor": "Run",
+    "Spring Boot.GatewayApplication.executor": "Run",
+    "Spring Boot.ReadServiceApplication.executor": "Run",
+    "Spring Boot.WriteServiceApplication.executor": "Run",
+    "Spring Boot.serverApplication.executor": "Run",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/Code/Reddit",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "D:/Code/Reddit/project/src/main/java/com/Reddit/Main.java",
+    "project.structure.last.edited": "项目",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.configurations.included.in.services": "true",
+    "settings.editor.selected.configurable": "com.intellij.jarRepository.settings.RemoteRepositoriesConfigurable",
+    "vue.rearranger.settings.migration": "true",
+    "应用程序.WriteServiceApplication.executor": "Run"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql",
+      "redis",
+      "mysql"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Code\Reddit\project\src\main\resources\content" />
+      <recent name="D:\Code\Reddit\project\src\main\resources" />
+      <recent name="D:\Code\Reddit\project\src\main\resources\static" />
+      <recent name="D:\Code\Reddit\project\src\main\java\com\Reddit\Controller" />
+      <recent name="D:\Code\Reddit\project\src\main\java\com\Reddit" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.Reddit.entity" />
+      <recent name="com.Reddit.Utils" />
+      <recent name="com.Reddit" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="KtorApplicationConfigurationType" />
+        <option value="MicronautRunConfigurationType" />
+        <option value="QuarkusRunConfigurationType" />
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+    <option name="configurationStatuses">
+      <map>
+        <entry key="SpringBootApplicationConfigurationType">
+          <value>
+            <map>
+              <entry key="GatewayApplication" value="STOPPED" />
+              <entry key="ReadServiceApplication" value="STOPPED" />
+              <entry key="WriteServiceApplication" value="STOPPED" />
+            </map>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.GatewayApplication">
+    <configuration name="WriteServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.aura.WriteServiceApplication" />
+      <module name="aura-write-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.aura.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+    <configuration name="GatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="aura-gateway" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.aura.gateway.GatewayApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReadServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="aura-read-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.aura.ReadServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WriteServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="aura-write-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.aura.WriteServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="应用程序.WriteServiceApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.26830.84" />
+        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-IU-252.26830.84" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="502a2b92-9d42-48db-b31e-a88db6b3b2bd" name="更改" comment="" />
+      <created>1760341001932</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1760341001932</updated>
+      <workItem from="1769836788180" duration="3365000" />
+      <workItem from="1770020997161" duration="8945000" />
+      <workItem from="1770105797695" duration="7923000" />
+      <workItem from="1770196486064" duration="3671000" />
+      <workItem from="1770276972043" duration="7544000" />
+      <workItem from="1770381347932" duration="2322000" />
+      <workItem from="1770621120543" duration="10269000" />
+      <workItem from="1770708501401" duration="7011000" />
+      <workItem from="1770960536677" duration="21000" />
+      <workItem from="1771922403912" duration="12289000" />
+      <workItem from="1772022966644" duration="457000" />
+      <workItem from="1772628474798" duration="920000" />
+      <workItem from="1772629491189" duration="28000" />
+      <workItem from="1773730676520" duration="746000" />
+      <workItem from="1776088663595" duration="1197000" />
+      <workItem from="1776090360125" duration="587000" />
+      <workItem from="1776152963172" duration="12274000" />
+      <workItem from="1776244138348" duration="1478000" />
+      <workItem from="1776256765896" duration="4679000" />
+      <workItem from="1776322996934" duration="19000" />
+      <workItem from="1776327147063" duration="863000" />
+      <workItem from="1776344089803" duration="2669000" />
+      <workItem from="1776407320203" duration="4304000" />
+      <workItem from="1776421731701" duration="124000" />
+      <workItem from="1776515908059" duration="447000" />
+      <workItem from="1780551670562" duration="6563000" />
+      <workItem from="1780562267528" duration="25000" />
+      <workItem from="1780562304139" duration="10472000" />
+      <workItem from="1780716069448" duration="635000" />
+      <workItem from="1780725118236" duration="5127000" />
+      <workItem from="1780730611420" duration="3797000" />
+    </task>
+    <task id="LOCAL-00001" summary="已完成用户 社区 帖子模块">
+      <option name="closed" value="true" />
+      <created>1770708587181</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1770708587181</updated>
+    </task>
+    <task id="LOCAL-00002" summary="已完成所有基础功能">
+      <option name="closed" value="true" />
+      <created>1771954292116</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1771954292116</updated>
+    </task>
+    <task id="LOCAL-00003" summary="去ai">
+      <option name="closed" value="true" />
+      <created>1772629346832</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1772629346832</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="已完成用户 社区 帖子模块" />
+    <MESSAGE value="已完成所有基础功能" />
+    <MESSAGE value="去ai" />
+    <MESSAGE value="Revert &quot;已完成所有基础功能&quot;&#10;&#10;This reverts commit a1e26fe0" />
+    <option name="LAST_COMMIT_MESSAGE" value="Revert &quot;已完成所有基础功能&quot;&#10;&#10;This reverts commit a1e26fe0" />
+  </component>
+</project>

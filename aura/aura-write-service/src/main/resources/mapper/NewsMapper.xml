@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aura.mapper.NewsMapper">
+
+    <insert id="insert">
+        INSERT INTO news_table (id, title, content, author_id, like_count, create_time)
+        VALUES (#{id}, #{title}, #{content}, #{authorId}, #{likeCount}, #{createTime})
+    </insert>
+
+    <select id="findById" resultType="com.aura.entity.News">
+        SELECT * FROM news_table WHERE id = #{id}
+    </select>
+
+    <select id="findByAuthorId" resultType="com.aura.entity.News">
+        SELECT * FROM news_table WHERE author_id = #{authorId} ORDER BY create_time DESC
+    </select>
+
+    <select id="findAll" resultType="com.aura.entity.News">
+        SELECT * FROM news_table ORDER BY create_time DESC
+    </select>
+
+    <select id="findPage" resultType="com.aura.entity.News">
+        SELECT * FROM news_table ORDER BY create_time DESC LIMIT #{limit} OFFSET #{offset}
+    </select>
+
+    <update id="update">
+        UPDATE news_table SET title = #{title}, content = #{content} WHERE id = #{id}
+    </update>
+
+    <update id="updateLikeCount">
+        UPDATE news_table SET like_count = like_count + #{delta} WHERE id = #{id}
+    </update>
+
+    <delete id="deleteById">
+        DELETE FROM news_table WHERE id = #{id}
+    </delete>
+
+</mapper>

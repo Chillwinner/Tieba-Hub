@@ -1,0 +1,32 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: aura-gateway
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
+      discovery:
+        service: ${spring.application.name}
+        fail-fast: false
+    gateway:
+      routes:
+        - id: read-service
+          uri: lb://aura-read-service
+          predicates:
+            - Path=/api/read/**
+          filters:
+            - StripPrefix=1
+        - id: write-service
+          uri: lb://aura-write-service
+          predicates:
+            - Path=/api/write/**
+          filters:
+            - StripPrefix=1
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health

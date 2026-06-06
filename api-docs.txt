@@ -1,0 +1,183 @@
+========================================
+  Aura 新闻平台 — 后端 API 文档
+========================================
+
+Base URL: http://localhost:8080
+Content-Type: application/x-www-form-urlencoded
+Auth: Authorization: Bearer <token> (除登录注册外都需要)
+
+统一返回格式:
+{
+  code: 200,          // 200=成功 500=错误
+  message: "success",
+  data: { ... }
+}
+
+========================================
+一、用户
+========================================
+
+1. 注册
+  POST /api/user/register
+  Params: phone, password, nickname(可选)
+  Return: User对象
+  示例: POST /api/user/register
+        phone=13800138000&password=123456&nickname=张三
+
+2. 登录
+  POST /api/user/login
+  Params: phone, password
+  Return: String (JWT token)
+  示例: POST /api/user/login
+        phone=13800138000&password=123456
+
+3. 获取用户信息
+  GET /api/user/{id}
+  Return: User对象
+  示例: GET /api/user/1
+
+4. 修改个人信息 (需token)
+  PUT /api/user/profile
+  Params: nickname(可选), email(可选)
+  Return: User对象
+  示例: PUT /api/user/profile
+        nickname=newName&email=a@b.com
+
+User对象:
+{
+  id: 1,
+  phone: "13800138000",
+  password: null,
+  nickname: "张三",
+  email: "a@b.com",
+  createTime: "2026-06-04T12:00:00"
+}
+
+========================================
+二、新闻
+========================================
+
+1. 发布新闻 (需token)
+  POST /api/news
+  Params: title, content
+  Return: News对象
+
+2. 新闻详情
+  GET /api/news/{id}
+  Return: News对象
+
+3. 分页列表
+  GET /api/news/feed?page=1&size=20
+  Return: News数组
+
+4. 某用户的新闻
+  GET /api/news/author/{authorId}
+  Return: News数组
+
+5. 修改新闻 (需token, 仅作者)
+  PUT /api/news/{id}
+  Params: title, content
+  Return: News对象
+
+6. 点赞 (不限量)
+  POST /api/news/{id}/like
+  Return: 无data
+
+7. 删除新闻 (需token, 仅作者)
+  DELETE /api/news/{id}
+  Return: 无data
+
+News对象:
+{
+  id: 1,
+  title: "标题",
+  content: "内容",
+  authorId: 1,
+  likeCount: 0,
+  createTime: "2026-06-04T12:00:00"
+}
+
+========================================
+三、评论
+========================================
+
+1. 发表评论 (需token)
+  POST /api/comment
+  Params: newsId, content, parentId(可选, 默认0)
+          parentId=0 → 一级评论
+          parentId=评论id → 二级回复
+  Return: Comment对象
+
+2. 新闻的评论列表（含二级回复）
+  GET /api/comment/news/{newsId}
+  Return: Comment数组 (一级评论的replies字段包含二级回复)
+
+3. 修改评论 (需token, 仅作者)
+  PUT /api/comment/{id}
+  Params: content
+  Return: Comment对象
+
+4. 点赞评论 (不限量)
+  POST /api/comment/{id}/like
+  Return: 无data
+
+5. 删除评论 (需token, 仅作者)
+  DELETE /api/comment/{id}
+  Return: 无data
+
+Comment对象:
+{
+  id: 1,
+  newsId: 1,
+  userId: 1,
+  content: "评论内容",
+  parentId: 0,
+  likeCount: 0,
+  createTime: "2026-06-04T12:00:00",
+  userNickname: null,
+  replies: [ ... ]
+}
+
+========================================
+四、关注
+========================================
+
+1. 关注 (需token)
+  POST /api/follow/{authorId}
+  Return: 无data
+
+2. 取消关注 (需token)
+  POST /api/follow/unfollow/{authorId}
+  Return: 无data
+
+3. 检查是否关注 (需token)
+  GET /api/follow/check/{authorId}
+  Return: Boolean
+
+4. 我的关注列表 (需token)
+  GET /api/follow/following
+  Return: User数组
+
+5. 某用户的粉丝列表
+  GET /api/follow/{authorId}/followers
+  Return: User数组
+
+6. 我的关注数和粉丝数 (需token)
+  GET /api/follow/counts
+  Return: { followers: 10, following: 5 }
+
+========================================
+数据库字段（供前端参考）
+========================================
+
+user_table:
+  id, phone, password(加密), nickname, email, create_time
+
+news_table:
+  id, title, content, author_id, like_count, create_time
+
+comment_table:
+  id, news_id, user_id, content, parent_id, like_count, create_time
+
+user_follow:
+  id, user_id, author_id, create_time (唯一约束: user_id + author_id)

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="aura-gateway" />
+        <module name="aura-read-service" />
+        <module name="aura-write-service" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="aura" options="-parameters" />
+      <module name="aura-gateway" options="-parameters" />
+      <module name="aura-read-service" options="-parameters" />
+      <module name="aura-server" options="" />
+      <module name="aura-write-service" options="-parameters" />
+    </option>
+  </component>
+</project>
