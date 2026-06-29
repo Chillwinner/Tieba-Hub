@@ -1,5 +1,5 @@
 基于 Spring Cloud 微服务架构的新闻社交平台，采用 CQRS 读写分离设计，支持新闻发布、评论、关注、个性化信息流等功能。
-
+搭配这个使用 https://github.com/Chillwinner/reddit-vue
 ## 项目特点
 
 - **CQRS 读写分离**：写入服务（aura-write-service）与读取服务（aura-read-service）独立部署，可按需水平扩展
