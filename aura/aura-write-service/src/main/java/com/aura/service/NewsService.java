@@ -12,14 +12,18 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.locks.ReentrantLock;
 
-/** 新闻写业务：发帖（扇出粉丝收件箱）、改帖、删帖、点赞（内存蓄水池刷盘） */
+// 新闻业务：发帖、编辑、删除、点赞
 @Service
 public class NewsService
 {
@@ -36,21 +40,33 @@ public class NewsService
     @Autowired
     private UserFollowMapper followMapper;
 
-    /** 异步广播线程池，发帖时扇出粉丝收件箱用，CallerRunsPolicy 保证不丢 */
+    // 扇出广播线程池
     private final ThreadPoolExecutor broadcastExecutor = new ThreadPoolExecutor(
             8, 16, 60, TimeUnit.SECONDS,
             new ArrayBlockingQueue<>(1000),
+            new ThreadFactory()
+            {
+                private final AtomicInteger counter = new AtomicInteger(0);
+
+                @Override
+                public Thread newThread(Runnable r)
+                {
+                    return new Thread(r, "broadcast-" + counter.incrementAndGet());
+                }
+            },
             new ThreadPoolExecutor.CallerRunsPolicy()
     );
 
-    /** 新闻点赞本地蓄水池，每 100 赞异步刷盘到 PG */
+    // 点赞计数蓄水池，每 100 赞异步刷盘
     private final ConcurrentHashMap<Long, Integer> likeCounterMap = new ConcurrentHashMap<>();
 
-    /** 发帖：INCR 生成 id → 写 Redis + ZSet → 异步扇出粉丝收件箱 → MQ 异步落库 */
+    private final ReentrantLock likeLock = new ReentrantLock();
+
+    // 发布新闻，扇出粉丝收件箱
     public News createNews(News news)
     {
         Long id = redis.opsForValue().increment("news:id:gen");
-        Long authorId = UserContext.getCurrentId();
+        Long authorId = UserContext.getUserId();
 
         news.setId(id);
         news.setAuthorId(authorId);
@@ -60,6 +76,7 @@ public class NewsService
         String json = JSON.toJSONString(news);
         redis.opsForValue().set("news:" + id, json);
         redis.opsForZSet().add("news:author:" + authorId, String.valueOf(id), System.currentTimeMillis());
+        redis.opsForZSet().add("news:all", String.valueOf(id), System.currentTimeMillis());
         redis.opsForZSet().add("news:like", String.valueOf(id), 0);
 
         List<UserFollow> followers = followMapper.findByAuthorId(authorId);
@@ -83,7 +100,7 @@ public class NewsService
         return news;
     }
 
-    /** 编辑新闻，校验作者权限，写 Redis + MQ 异步落库 */
+    // 编辑新闻，校验作者权限
     public News updateNews(Long id, News incoming)
     {
         String json = redis.opsForValue().get("news:" + id);
@@ -93,7 +110,7 @@ public class NewsService
         }
 
         News news = JSON.parseObject(json, News.class);
-        if (!news.getAuthorId().equals(UserContext.getCurrentId()))
+        if (!news.getAuthorId().equals(UserContext.getUserId()))
         {
             throw new RuntimeException("no auth");
         }
@@ -106,7 +123,7 @@ public class NewsService
         return news;
     }
 
-    /** 点赞：内存蓄水池自增，每 100 赞 DCL + 异步刷盘到 PG，同时更新 Redis 排行榜 */
+    // 点赞新闻，蓄水池自增，每 100 赞异步刷盘
     public boolean likeNews(Long newsId)
     {
         String json = redis.opsForValue().get("news:" + newsId);
@@ -123,29 +140,29 @@ public class NewsService
 
         if (count >= 100)
         {
-            synchronized (likeCounterMap)
+            likeLock.lock();
+            try
             {
                 Integer remain = likeCounterMap.get(newsId);
                 if (remain != null && remain >= 100)
                 {
                     likeCounterMap.put(newsId, 0);
-                    Runnable flush = new Runnable()
-                    {
-                        @Override
-                        public void run()
-                        {
-                            mapper.updateLikeCount(newsId, remain);
-                        }
-                    };
-                    CompletableFuture.runAsync(flush);
+                    Map<String, Object> msg = new HashMap<>();
+                    msg.put("newsId", newsId);
+                    msg.put("delta", remain);
+                    mq.convertAndSend("news.exchange", "news.like", msg);
                 }
+            }
+            finally
+            {
+                likeLock.unlock();
             }
         }
 
         return true;
     }
 
-    /** 删新闻：校验作者权限，清 Redis + ZSet，MQ 异步落库 */
+    // 删除新闻，校验作者权限
     public boolean deleteNews(Long id)
     {
         String json = redis.opsForValue().get("news:" + id);
@@ -155,13 +172,14 @@ public class NewsService
         }
 
         News news = JSON.parseObject(json, News.class);
-        if (!news.getAuthorId().equals(UserContext.getCurrentId()))
+        if (!news.getAuthorId().equals(UserContext.getUserId()))
         {
             return false;
         }
 
         redis.delete("news:" + id);
         redis.opsForZSet().remove("news:author:" + news.getAuthorId(), String.valueOf(id));
+        redis.opsForZSet().remove("news:all", String.valueOf(id));
         redis.opsForZSet().remove("news:like", String.valueOf(id));
         mq.convertAndSend("news.exchange", "news.delete", id);
 

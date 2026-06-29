@@ -4,22 +4,142 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="502a2b92-9d42-48db-b31e-a88db6b3b2bd" name="更改" comment="Revert &quot;已完成所有基础功能&quot;&#10;&#10;This reverts commit a1e26fe0">
-      <change beforePath="$PROJECT_DIR$/project/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/com/Reddit/Controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/com/Reddit/Controller/CategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/com/Reddit/Interceptor/JwtTokenInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/com/Reddit/Interceptor/JwtTokenInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/com/Reddit/Mapper/PostMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/com/Reddit/Mapper/PostMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/com/Reddit/Mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/com/Reddit/Mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/com/Reddit/Service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/com/Reddit/Service/CategoryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/com/Reddit/Service/CommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/com/Reddit/Service/CommentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/com/Reddit/Service/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/com/Reddit/Service/PostService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/com/Reddit/Service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/com/Reddit/Service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/com/Reddit/Utils/AliOssUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/com/Reddit/Utils/AliOssUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/com/Reddit/Utils/JwtUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/com/Reddit/Utils/JwtUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/com/Reddit/Utils/Md5Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/com/Reddit/Utils/Md5Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/com/Reddit/config/WebMvcConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/com/Reddit/config/WebMvcConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/com/Reddit/entity/PostCreateDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/com/Reddit/entity/PostCreateDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/resources/application.yml" afterDir="false" />
+    <list default="true" id="502a2b92-9d42-48db-b31e-a88db6b3b2bd" name="更改" comment="已初步完成">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e38b108a-5188-486d-aa7e-fbf3ef932113.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e38b108a-5188-486d-aa7e-fbf3ef932113.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e38b108a-5188-486d-aa7e-fbf3ef932113/storage_v2/_src_/database/aura.Y90tAA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e38b108a-5188-486d-aa7e-fbf3ef932113/storage_v2/_src_/database/aura.Y90tAA/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e38b108a-5188-486d-aa7e-fbf3ef932113/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e38b108a-5188-486d-aa7e-fbf3ef932113/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-gateway/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-gateway/src/main/java/com/aura/gateway/AuthGlobalFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-gateway/src/main/java/com/aura/gateway/AuthGlobalFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-gateway/src/main/java/com/aura/gateway/GatewayApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-gateway/src/main/java/com/aura/gateway/GatewayApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-gateway/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-gateway/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-gateway/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-gateway/target/classes/com/aura/gateway/AuthGlobalFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-gateway/target/classes/com/aura/gateway/AuthGlobalFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-gateway/target/classes/com/aura/gateway/GatewayApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-gateway/target/classes/com/aura/gateway/GatewayApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-read-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-read-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-read-service/src/main/java/com/aura/ReadServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-read-service/src/main/java/com/aura/ReadServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-read-service/src/main/java/com/aura/config/WebMvcConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-read-service/src/main/java/com/aura/config/WebMvcConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-read-service/src/main/java/com/aura/controller/CommentReadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-read-service/src/main/java/com/aura/controller/CommentReadController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-read-service/src/main/java/com/aura/controller/FollowReadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-read-service/src/main/java/com/aura/controller/FollowReadController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-read-service/src/main/java/com/aura/controller/NewsReadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-read-service/src/main/java/com/aura/controller/NewsReadController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-read-service/src/main/java/com/aura/controller/UserReadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-read-service/src/main/java/com/aura/controller/UserReadController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-read-service/src/main/java/com/aura/entity/FollowCounts.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-read-service/src/main/java/com/aura/interceptor/MicroUserInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-read-service/src/main/java/com/aura/interceptor/MicroUserInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-read-service/src/main/java/com/aura/mapper/CommentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-read-service/src/main/java/com/aura/mapper/CommentMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-read-service/src/main/java/com/aura/mapper/NewsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-read-service/src/main/java/com/aura/mapper/NewsMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-read-service/src/main/java/com/aura/mapper/UserFollowMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-read-service/src/main/java/com/aura/mapper/UserFollowMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-read-service/src/main/java/com/aura/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-read-service/src/main/java/com/aura/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-read-service/src/main/java/com/aura/result/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-read-service/src/main/java/com/aura/result/Result.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-read-service/src/main/java/com/aura/service/ReadService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-read-service/src/main/java/com/aura/utils/JwtUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-read-service/src/main/java/com/aura/utils/Sha256Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-read-service/src/main/java/com/aura/utils/Sha256Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-read-service/src/main/java/com/aura/utils/UserContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-read-service/src/main/java/com/aura/utils/UserContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-read-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-read-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-read-service/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-read-service/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-read-service/target/classes/com/aura/ReadServiceApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-read-service/target/classes/com/aura/ReadServiceApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-read-service/target/classes/com/aura/config/WebMvcConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-read-service/target/classes/com/aura/config/WebMvcConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-read-service/target/classes/com/aura/controller/CommentReadController.class" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-read-service/target/classes/com/aura/controller/CommentReadController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-read-service/target/classes/com/aura/controller/FollowReadController.class" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-read-service/target/classes/com/aura/controller/FollowReadController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-read-service/target/classes/com/aura/controller/NewsReadController.class" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-read-service/target/classes/com/aura/controller/NewsReadController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-read-service/target/classes/com/aura/controller/UserReadController.class" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-read-service/target/classes/com/aura/controller/UserReadController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-read-service/target/classes/com/aura/entity/FollowCounts.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-read-service/target/classes/com/aura/interceptor/MicroUserInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-read-service/target/classes/com/aura/interceptor/MicroUserInterceptor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-read-service/target/classes/com/aura/service/ReadService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-read-service/target/classes/com/aura/utils/JwtUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-read-service/target/classes/com/aura/utils/Sha256Utils.class" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-read-service/target/classes/com/aura/utils/Sha256Utils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-read-service/target/classes/com/aura/utils/UserContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-read-service/target/classes/com/aura/utils/UserContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-read-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-read-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-read-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-read-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/WriteServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/WriteServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/config/WebMvcConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/config/WebMvcConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/consumer/CommentConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/consumer/CommentConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/consumer/FollowConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/consumer/FollowConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/consumer/NewsConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/consumer/NewsConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/consumer/UserConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/consumer/UserConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/controller/CommentWriteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/controller/CommentWriteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/controller/FollowWriteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/controller/FollowWriteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/controller/NewsWriteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/controller/NewsWriteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/controller/UserWriteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/controller/UserWriteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/entity/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/entity/Comment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/entity/FollowCounts.java" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/entity/FollowCounts.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/entity/News.java" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/entity/News.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/entity/UserFollow.java" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/entity/UserFollow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/interceptor/MicroUserInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/interceptor/MicroUserInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/mapper/CommentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/mapper/CommentMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/mapper/NewsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/mapper/NewsMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/mapper/UserFollowMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/mapper/UserFollowMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/result/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/result/Result.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/service/CommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/service/CommentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/service/FollowService.java" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/service/FollowService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/service/NewsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/service/NewsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/utils/JwtUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/utils/JwtUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/utils/Sha256Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/utils/Sha256Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/utils/UserContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/src/main/java/com/aura/utils/UserContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/target/classes/com/aura/WriteServiceApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/target/classes/com/aura/WriteServiceApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/target/classes/com/aura/config/WebMvcConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/target/classes/com/aura/config/WebMvcConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/target/classes/com/aura/consumer/CommentConsumer.class" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/target/classes/com/aura/consumer/CommentConsumer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/target/classes/com/aura/consumer/FollowConsumer.class" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/target/classes/com/aura/consumer/FollowConsumer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/target/classes/com/aura/consumer/NewsConsumer.class" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/target/classes/com/aura/consumer/NewsConsumer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/target/classes/com/aura/consumer/UserConsumer.class" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/target/classes/com/aura/consumer/UserConsumer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/target/classes/com/aura/controller/UserWriteController.class" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/target/classes/com/aura/controller/UserWriteController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/target/classes/com/aura/entity/Comment.class" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/target/classes/com/aura/entity/Comment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/target/classes/com/aura/entity/FollowCounts.class" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/target/classes/com/aura/entity/FollowCounts.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/target/classes/com/aura/entity/News.class" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/target/classes/com/aura/entity/News.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/target/classes/com/aura/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/target/classes/com/aura/entity/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/target/classes/com/aura/entity/UserFollow.class" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/target/classes/com/aura/entity/UserFollow.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/target/classes/com/aura/interceptor/MicroUserInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/target/classes/com/aura/interceptor/MicroUserInterceptor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/target/classes/com/aura/service/CommentService$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/target/classes/com/aura/service/CommentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/target/classes/com/aura/service/CommentService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/target/classes/com/aura/service/FollowService.class" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/target/classes/com/aura/service/FollowService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/target/classes/com/aura/service/NewsService$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/target/classes/com/aura/service/NewsService$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/target/classes/com/aura/service/NewsService$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/target/classes/com/aura/service/NewsService$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/target/classes/com/aura/service/NewsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/target/classes/com/aura/service/NewsService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/target/classes/com/aura/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/target/classes/com/aura/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/target/classes/com/aura/utils/JwtUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/target/classes/com/aura/utils/JwtUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/target/classes/com/aura/utils/UserContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/target/classes/com/aura/utils/UserContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/aura-write-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/aura/aura-write-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/src/main/java/com/aura/AuraApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/src/main/java/com/aura/config/WebMvcConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/src/main/java/com/aura/consumer/CommentConsumer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/src/main/java/com/aura/consumer/FollowConsumer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/src/main/java/com/aura/consumer/NewsConsumer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/src/main/java/com/aura/consumer/UserConsumer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/src/main/java/com/aura/controller/CommentController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/src/main/java/com/aura/controller/FollowController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/src/main/java/com/aura/controller/NewsController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/src/main/java/com/aura/controller/UserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/src/main/java/com/aura/entity/Comment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/src/main/java/com/aura/entity/FollowCounts.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/src/main/java/com/aura/entity/News.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/src/main/java/com/aura/entity/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/src/main/java/com/aura/entity/UserFollow.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/src/main/java/com/aura/interceptor/JwtTokenInterceptor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/src/main/java/com/aura/mapper/CommentMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/src/main/java/com/aura/mapper/NewsMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/src/main/java/com/aura/mapper/UserFollowMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/src/main/java/com/aura/mapper/UserMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/src/main/java/com/aura/result/Result.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/src/main/java/com/aura/service/CommentService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/src/main/java/com/aura/service/FollowService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/src/main/java/com/aura/service/NewsService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/src/main/java/com/aura/service/UserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/src/main/java/com/aura/utils/JwtUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/src/main/java/com/aura/utils/Sha256Utils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/src/main/java/com/aura/utils/UserContext.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/src/main/resources/mapper/CommentMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/src/main/resources/mapper/NewsMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/src/main/resources/mapper/UserFollowMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aura/src/main/resources/mapper/UserMapper.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,47 +179,47 @@
     <option name="showLibraryContents" value="true" />
     <option name="sortKey" value="BY_TIME_DESCENDING" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "Spring Boot.AuraApplication (1).executor": "Run",
-    "Spring Boot.AuraApplication.executor": "Run",
-    "Spring Boot.GatewayApplication.executor": "Run",
-    "Spring Boot.ReadServiceApplication.executor": "Run",
-    "Spring Boot.WriteServiceApplication.executor": "Run",
-    "Spring Boot.serverApplication.executor": "Run",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Code/Reddit",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "D:/Code/Reddit/project/src/main/java/com/Reddit/Main.java",
-    "project.structure.last.edited": "项目",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "run.configurations.included.in.services": "true",
-    "settings.editor.selected.configurable": "com.intellij.jarRepository.settings.RemoteRepositoriesConfigurable",
-    "vue.rearranger.settings.migration": "true",
-    "应用程序.WriteServiceApplication.executor": "Run"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.AuraApplication (1).executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.AuraApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.GatewayApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.ReadServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.WriteServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.serverApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Code/Reddit&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;D:/Code/Reddit/project/src/main/java/com/Reddit/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;项目&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;,
+    &quot;应用程序.WriteServiceApplication.executor&quot;: &quot;Run&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql",
-      "redis",
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;,
+      &quot;redis&quot;,
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Code\Reddit\project\src\main\resources\content" />
@@ -233,6 +353,21 @@
       <workItem from="1780716069448" duration="635000" />
       <workItem from="1780725118236" duration="5127000" />
       <workItem from="1780730611420" duration="3797000" />
+      <workItem from="1780749288829" duration="257000" />
+      <workItem from="1781342933072" duration="1473000" />
+      <workItem from="1781409649189" duration="12299000" />
+      <workItem from="1781448032935" duration="3663000" />
+      <workItem from="1781456840271" duration="4028000" />
+      <workItem from="1781498184403" duration="11618000" />
+      <workItem from="1781511761230" duration="2283000" />
+      <workItem from="1781514735110" duration="813000" />
+      <workItem from="1781521495563" duration="258000" />
+      <workItem from="1781522093978" duration="3753000" />
+      <workItem from="1781537247421" duration="6754000" />
+      <workItem from="1781588367478" duration="6000" />
+      <workItem from="1781685021286" duration="2084000" />
+      <workItem from="1781712197108" duration="44000" />
+      <workItem from="1782662246074" duration="1828000" />
     </task>
     <task id="LOCAL-00001" summary="已完成用户 社区 帖子模块">
       <option name="closed" value="true" />
@@ -258,7 +393,15 @@
       <option name="project" value="LOCAL" />
       <updated>1772629346832</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="已初步完成">
+      <option name="closed" value="true" />
+      <created>1780749507818</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1780749507818</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -280,6 +423,7 @@
     <MESSAGE value="已完成所有基础功能" />
     <MESSAGE value="去ai" />
     <MESSAGE value="Revert &quot;已完成所有基础功能&quot;&#10;&#10;This reverts commit a1e26fe0" />
-    <option name="LAST_COMMIT_MESSAGE" value="Revert &quot;已完成所有基础功能&quot;&#10;&#10;This reverts commit a1e26fe0" />
+    <MESSAGE value="已初步完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="已初步完成" />
   </component>
 </project>

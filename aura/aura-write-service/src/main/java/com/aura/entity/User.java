@@ -2,10 +2,12 @@ package com.aura.entity;
 
 import lombok.Data;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
+// 用户实体
 @Data
-public class User
+public class User implements Serializable
 {
     private Long id;
     private String phone;

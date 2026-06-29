@@ -1,23 +1,23 @@
 package com.aura.utils;
 
-/** ThreadLocal 持有当前请求的登录用户 id，由 JWT 拦截器设置，业务层通过 getCurrentId() 获取 */
+// 通过 ThreadLocal 持有当前请求的登录用户 ID，由拦截器设置，业务层通过 getUserId() 获取
 public class UserContext
 {
     private static final ThreadLocal<Long> threadLocal = new ThreadLocal<>();
 
-    /** 设置当前登录用户 id */
-    public static void setCurrentId(Long id)
+    // 设置当前线程的用户 ID
+    public static void setUserId(Long id)
     {
         threadLocal.set(id);
     }
 
-    /** 获取当前登录用户 id */
-    public static Long getCurrentId()
+    // 获取当前线程的用户 ID
+    public static Long getUserId()
     {
         return threadLocal.get();
     }
 
-    /** 清理，防止线程池复用时脏数据 */
+    // 清除当前线程的用户 ID，防止内存泄漏
     public static void remove()
     {
         threadLocal.remove();

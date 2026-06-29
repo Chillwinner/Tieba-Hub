@@ -2,7 +2,7 @@ package com.aura.result;
 
 import lombok.Data;
 
-/** 统一返回对象，code=200 表示成功，其他为错误码 */
+// 统一返回对象，code=200 表示成功，其他为错误码
 @Data
 public class Result<T>
 {
@@ -12,7 +12,7 @@ public class Result<T>
 
     private Result() {}
 
-    /** 成功，携带数据 */
+    // 成功，携带数据
     public static <T> Result<T> success(T data)
     {
         Result<T> r = new Result<T>();
@@ -22,13 +22,13 @@ public class Result<T>
         return r;
     }
 
-    /** 成功，无数据 */
+    // 成功，无数据
     public static <T> Result<T> success()
     {
         return success(null);
     }
 
-    /** 失败，指定错误码和消息 */
+    // 失败，指定错误码和消息
     public static <T> Result<T> error(int code, String message)
     {
         Result<T> r = new Result<T>();
@@ -37,7 +37,7 @@ public class Result<T>
         return r;
     }
 
-    /** 失败，默认 500 */
+    // 失败，默认 500
     public static <T> Result<T> error(String message)
     {
         return error(500, message);

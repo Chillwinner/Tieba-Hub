@@ -3,17 +3,9 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.53">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <Grants>1||-9223372036854775808|c|G
-1||10|c|G
-1||10|C|G
-1||10|T|G
-4||-9223372036854775808|c|G
-4||10|c|G
-4||10|C|G
-4||10|T|G</Grants>
-      <IntrospectionStateNumber>1040</IntrospectionStateNumber>
+      <IntrospectionStateNumber>174750</IntrospectionStateNumber>
       <ServerVersion>16.14</ServerVersion>
-      <StartupTime>1780729160</StartupTime>
+      <StartupTime>1781515064</StartupTime>
       <TimeZones>true ACDT
 true ACSST
 false ACST
@@ -1408,11 +1400,20 @@ true posixrules
 13212||10|C|G
 13212||-9223372036854775808|U|G
 13212||10|U|G</Grants>
-      <IntrospectionStateNumber>1041</IntrospectionStateNumber>
       <ObjectId>24577</ObjectId>
       <OwnerName>root</OwnerName>
     </database>
     <database id="3" parent="1" name="aura_news_db">
+      <Grants>11||10|C|G
+11||-9223372036854775808|U|G
+11||10|U|G
+2200||6171|C|G
+2200||-9223372036854775808|U|G
+2200||6171|U|G
+13212||10|C|G
+13212||-9223372036854775808|U|G
+13212||10|U|G</Grants>
+      <IntrospectionStateNumber>174750</IntrospectionStateNumber>
       <ObjectId>16384</ObjectId>
       <OwnerName>root</OwnerName>
     </database>
@@ -1432,7 +1433,6 @@ true posixrules
 13212||10|C|G
 13212||-9223372036854775808|U|G
 13212||10|U|G</Grants>
-      <IntrospectionStateNumber>1040</IntrospectionStateNumber>
       <ObjectId>5</ObjectId>
       <OwnerName>root</OwnerName>
     </database>
@@ -4852,11 +4852,8 @@ true posixrules
       <AutoIntrospectionLevel>3</AutoIntrospectionLevel>
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <LastIntrospectionL1Xid>1041</LastIntrospectionL1Xid>
-      <LastIntrospectionL2Xid>1041</LastIntrospectionL2Xid>
-      <LastIntrospectionL3Xid>1041</LastIntrospectionL3Xid>
       <LastIntrospectionLevel>3</LastIntrospectionLevel>
-      <LastIntrospectionLocalTimestamp>2026-06-06.07:59:08</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2026-06-15.06:12:47</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>524</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
@@ -8818,11 +8815,8 @@ true posixrules
       <AutoIntrospectionLevel>3</AutoIntrospectionLevel>
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <LastIntrospectionL1Xid>1040</LastIntrospectionL1Xid>
-      <LastIntrospectionL2Xid>1040</LastIntrospectionL2Xid>
-      <LastIntrospectionL3Xid>1040</LastIntrospectionL3Xid>
       <LastIntrospectionLevel>3</LastIntrospectionLevel>
-      <LastIntrospectionLocalTimestamp>2026-06-06.07:59:08</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2026-06-15.06:12:46</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>524</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>

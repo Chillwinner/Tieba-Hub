@@ -2,11 +2,13 @@ package com.aura.entity;
 
 import lombok.Data;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
 
+// 评论实体
 @Data
-public class Comment
+public class Comment implements Serializable
 {
     private Long id;
     private Long newsId;

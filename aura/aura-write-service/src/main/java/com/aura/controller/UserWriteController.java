@@ -6,7 +6,7 @@ import com.aura.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-/** 用户写操作 */
+// 用户写操作接口
 @RestController
 @RequestMapping("/api/write/user")
 public class UserWriteController
@@ -15,7 +15,7 @@ public class UserWriteController
     @Autowired
     private UserService userService;
 
-    /** 注册 */
+    // 注册新用户
     @PostMapping("/register")
     public Result register(@RequestBody User user)
     {
@@ -23,7 +23,15 @@ public class UserWriteController
         return Result.success(user);
     }
 
-    /** 修改个人信息 */
+    // 用户登录
+    @PostMapping("/login")
+    public Result login(@RequestParam String phone, @RequestParam String password)
+    {
+        String token = userService.login(phone, password);
+        return Result.success(token);
+    }
+
+    // 修改个人信息
     @PutMapping("/profile")
     public Result updateProfile(@RequestBody User user)
     {

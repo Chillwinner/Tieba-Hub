@@ -21,6 +21,7 @@ D:\Code\Reddit\aura\aura-write-service\src\main\java\com\aura\entity\FollowCount
 D:\Code\Reddit\aura\aura-write-service\src\main\java\com\aura\consumer\NewsConsumer.java
 D:\Code\Reddit\aura\aura-write-service\src\main\java\com\aura\controller\UserWriteController.java
 D:\Code\Reddit\aura\aura-write-service\src\main\java\com\aura\entity\UserFollow.java
+D:\Code\Reddit\aura\aura-write-service\src\main\java\com\aura\config\RabbitConfig.java
 D:\Code\Reddit\aura\aura-write-service\src\main\java\com\aura\controller\CommentWriteController.java
 D:\Code\Reddit\aura\aura-write-service\src\main\java\com\aura\service\UserService.java
 D:\Code\Reddit\aura\aura-write-service\src\main\java\com\aura\mapper\NewsMapper.java

@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 
-/** 关注写业务：关注/取关（Redis ZSet + MQ 异步落库） */
+// 关注业务：关注和取关
 @Service
 public class FollowService
 {
@@ -29,23 +29,20 @@ public class FollowService
     @Autowired
     private UserMapper userMapper;
 
-    /** 关注：Redis ZSet 双写 + MQ 异步落库，防重复关注 */
+    // 关注作者，Redis ZSet 双写 + 异步落库
     public void follow(Long authorId)
     {
-        Long userId = UserContext.getCurrentId();
-
+        Long userId = UserContext.getUserId();
         if (userId.equals(authorId))
         {
             throw new RuntimeException("Cannot follow yourself");
         }
-
         String key = "follow:user:" + userId;
         Double score = redis.opsForZSet().score(key, String.valueOf(authorId));
         if (score != null)
         {
             throw new RuntimeException("Already following");
         }
-
         User target = userMapper.findById(authorId);
         if (target == null)
         {
@@ -56,17 +53,20 @@ public class FollowService
         redis.opsForZSet().add(key, String.valueOf(authorId), now);
         redis.opsForZSet().add("follow:author:" + authorId, String.valueOf(userId), now);
 
+        Long id = redis.opsForValue().increment("follow:id:gen");
+
         UserFollow uf = new UserFollow();
+        uf.setId(id);
         uf.setUserId(userId);
         uf.setAuthorId(authorId);
         uf.setCreateTime(LocalDateTime.now());
         mq.convertAndSend("follow.exchange", "follow.create", uf);
     }
 
-    /** 取关：Redis ZSet 双删 + MQ 异步落库 */
+    // 取消关注，Redis ZSet 双删 + 异步落库
     public void unfollow(Long authorId)
     {
-        Long userId = UserContext.getCurrentId();
+        Long userId = UserContext.getUserId();
 
         String key = "follow:user:" + userId;
         Double score = redis.opsForZSet().score(key, String.valueOf(authorId));

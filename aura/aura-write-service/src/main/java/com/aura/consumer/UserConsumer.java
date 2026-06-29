@@ -9,7 +9,7 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-/** 用户 MQ 消费者：监听 user.exchange，异步写库 */
+// 用户 MQ 消费者，异步写库
 @Component
 public class UserConsumer
 {
@@ -17,7 +17,7 @@ public class UserConsumer
     @Autowired
     private UserMapper mapper;
 
-    /** 监听 user.create.queue → 插入新用户到 PG */
+    // 监听用户创建消息，插入新用户
     @RabbitListener(bindings = @QueueBinding(
             value = @Queue("user.create.queue"),
             exchange = @Exchange("user.exchange"),
@@ -25,10 +25,13 @@ public class UserConsumer
     ))
     public void createUser(User user)
     {
-        mapper.insert(user);
+        if (mapper.findById(user.getId()) == null)
+        {
+            mapper.insert(user);
+        }
     }
 
-    /** 监听 user.update.queue → 更新用户资料到 PG */
+    // 监听用户更新消息，更新用户资料
     @RabbitListener(bindings = @QueueBinding(
             value = @Queue("user.update.queue"),
             exchange = @Exchange("user.exchange"),

@@ -6,7 +6,7 @@ import com.aura.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-/** 评论写操作 */
+// 评论写操作接口
 @RestController
 @RequestMapping("/api/write/comment")
 public class CommentWriteController
@@ -15,7 +15,7 @@ public class CommentWriteController
     @Autowired
     private CommentService commentService;
 
-    /** 发表评论 */
+    // 发表评论
     @PostMapping
     public Result createComment(@RequestBody Comment comment)
     {
@@ -23,7 +23,7 @@ public class CommentWriteController
         return Result.success(comment);
     }
 
-    /** 修改评论 */
+    // 修改评论
     @PutMapping("/{id}")
     public Result updateComment(@PathVariable Long id, @RequestBody Comment comment)
     {
@@ -31,7 +31,7 @@ public class CommentWriteController
         return Result.success(comment);
     }
 
-    /** 删除评论 */
+    // 删除评论
     @DeleteMapping("/{id}")
     public Result deleteComment(@PathVariable Long id)
     {
@@ -43,7 +43,7 @@ public class CommentWriteController
         return Result.success();
     }
 
-    /** 点赞评论 */
+    // 点赞评论
     @PostMapping("/{id}/like")
     public Result likeComment(@PathVariable Long id)
     {

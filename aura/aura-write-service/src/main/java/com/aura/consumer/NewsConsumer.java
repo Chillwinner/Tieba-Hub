@@ -9,7 +9,9 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-/** 新闻 MQ 消费者：监听 news.exchange，异步写库（create/update/delete） */
+import java.util.Map;
+
+// 新闻 MQ 消费者，异步写库
 @Component
 public class NewsConsumer
 {
@@ -17,7 +19,7 @@ public class NewsConsumer
     @Autowired
     private NewsMapper mapper;
 
-    /** 监听 news.create.queue → 插入新闻到 PG */
+    // 监听新闻创建消息，插入新闻
     @RabbitListener(bindings = @QueueBinding(
             value = @Queue("news.create.queue"),
             exchange = @Exchange("news.exchange"),
@@ -25,10 +27,13 @@ public class NewsConsumer
     ))
     public void createNews(News news)
     {
-        mapper.insert(news);
+        if (mapper.findById(news.getId()) == null)
+        {
+            mapper.insert(news);
+        }
     }
 
-    /** 监听 news.update.queue → 更新新闻到 PG */
+    // 监听新闻更新消息，更新新闻
     @RabbitListener(bindings = @QueueBinding(
             value = @Queue("news.update.queue"),
             exchange = @Exchange("news.exchange"),
@@ -39,7 +44,7 @@ public class NewsConsumer
         mapper.update(news);
     }
 
-    /** 监听 news.delete.queue → 删除新闻到 PG */
+    // 监听新闻删除消息，删除新闻
     @RabbitListener(bindings = @QueueBinding(
             value = @Queue("news.delete.queue"),
             exchange = @Exchange("news.exchange"),
@@ -48,5 +53,18 @@ public class NewsConsumer
     public void deleteNews(Long newsId)
     {
         mapper.deleteById(newsId);
+    }
+
+    // 监听点赞消息，增量更新点赞数
+    @RabbitListener(bindings = @QueueBinding(
+            value = @Queue("news.like.queue"),
+            exchange = @Exchange("news.exchange"),
+            key = "news.like"
+    ))
+    public void likeNews(Map<String, Object> msg)
+    {
+        Long newsId = ((Number) msg.get("newsId")).longValue();
+        int delta = ((Number) msg.get("delta")).intValue();
+        mapper.updateLikeCount(newsId, delta);
     }
 }

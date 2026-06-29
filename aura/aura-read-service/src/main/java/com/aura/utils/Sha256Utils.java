@@ -4,13 +4,12 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.HexFormat;
 
-/** SHA-256 加密工具类，加盐哈希用于密码存储 */
 public class Sha256Utils
 {
 
     private static final String SALT = "Roxy";
 
-    /** 对明文加盐后做 SHA-256 哈希，返回 64 位十六进制字符串 */
+    // 对明文加盐后做 SHA-256 哈希，返回 64 位十六进制字符串
     public static String hash(String input)
     {
         try
@@ -26,7 +25,7 @@ public class Sha256Utils
         }
     }
 
-    /** 校验明文与哈希值是否匹配 */
+    // 校验明文与哈希值是否匹配
     public static boolean verify(String input, String hashed)
     {
         return hash(input).equals(hashed);

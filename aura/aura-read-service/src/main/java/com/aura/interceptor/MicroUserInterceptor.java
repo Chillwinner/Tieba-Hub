@@ -6,22 +6,23 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 
-/** 微服务通用拦截器：从网关透传的 X-User-Id 请求头中提取 userId，植入 UserContext */
 @Component
 public class MicroUserInterceptor implements HandlerInterceptor
 {
 
+    // 从请求头 UserId 中提取用户 ID，存入 UserContext
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
     {
-        String userId = request.getHeader("X-User-Id");
+        String userId = request.getHeader("UserId");
         if (userId != null && !userId.isEmpty())
         {
-            UserContext.setCurrentId(Long.parseLong(userId));
+            UserContext.setUserId(Long.parseLong(userId));
         }
         return true;
     }
 
+    // 请求结束后清理 ThreadLocal，防止内存泄漏
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
     {

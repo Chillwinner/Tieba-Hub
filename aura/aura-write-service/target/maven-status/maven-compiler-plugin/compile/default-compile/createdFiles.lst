@@ -1,5 +1,6 @@
 com\aura\WriteServiceApplication.class
 com\aura\service\FollowService.class
+com\aura\config\RabbitConfig.class
 com\aura\consumer\CommentConsumer.class
 com\aura\service\NewsService$2.class
 com\aura\consumer\NewsConsumer.class
@@ -23,7 +24,6 @@ com\aura\service\UserService.class
 com\aura\consumer\UserConsumer.class
 com\aura\consumer\FollowConsumer.class
 com\aura\interceptor\MicroUserInterceptor.class
-com\aura\service\CommentService$1.class
 com\aura\service\CommentService.class
 com\aura\utils\UserContext.class
 com\aura\entity\FollowCounts.class

@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 
-/** 用户写业务：注册（Redis 幂等+MQ 异步写库）、登录（JWT）、改资料 */
+// 用户业务：注册、登录、修改资料
 @Service
 public class UserService
 {
@@ -27,7 +27,10 @@ public class UserService
     @Autowired
     private UserMapper mapper;
 
-    /** 注册：Redis 手机号去重 → INCR 生成 id → 写 Redis + MQ 异步落库 */
+    @Autowired
+    private JwtUtils jwtUtils;
+
+    // 注册新用户，Redis 去重 + 异步落库
     public User register(User user)
     {
         String phone = user.getPhone();
@@ -42,7 +45,6 @@ public class UserService
         {
             throw new RuntimeException("Phone already registered");
         }
-
         Long id = redis.opsForValue().increment("user:id:gen");
         String nickname = user.getNickname();
         if (nickname == null)
@@ -64,7 +66,7 @@ public class UserService
         return user;
     }
 
-    /** 登录：Redis 优先查用户，miss 走 PG；校验密码后签发 JWT */
+    // 登录，Redis 优先查用户，校验密码后签发 JWT
     public String login(String phone, String password)
     {
         User user = null;
@@ -94,13 +96,13 @@ public class UserService
             throw new RuntimeException("Invalid password");
         }
 
-        return JwtUtils.generate(user.getId(), user.getPhone());
+        return jwtUtils.generate(user.getId());
     }
 
-    /** 改当前用户的昵称/邮箱，写 Redis + MQ 异步落库 */
+    // 修改用户昵称和邮箱
     public User updateProfile(User incoming)
     {
-        Long id = UserContext.getCurrentId();
+        Long id = UserContext.getUserId();
 
         String json = redis.opsForValue().get("user:" + id);
         User user = null;

@@ -3,46 +3,49 @@ package com.aura.utils;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
-/** JWT 工具类：签发、解析、校验 */
+// JWT 工具类，负责签发、解析、校验 token
+@Component
 public class JwtUtils
 {
 
-    private static final String SECRET = "aura-secret-key-2024-news-platform";
+    @Value("${jwt.secret}")
+    private String secret;
+
     private static final long EXPIRATION = 86400000;
 
-    /** 签发 JWT，载荷含 userId + phone，有效期 24h */
-    public static String generate(Long userId, String phone)
+    // 签发 JWT，有效期 24 小时
+    public String generate(Long userId)
     {
         return Jwts.builder()
                 .setSubject(String.valueOf(userId))
-                .claim("phone", phone)
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION))
-                .signWith(SignatureAlgorithm.HS256, SECRET)
+                .signWith(SignatureAlgorithm.HS256, secret)
                 .compact();
     }
 
-    /** 解析 JWT，返回 Claims，失败抛异常 */
-    public static Claims parse(String token)
+    // 解析 JWT 返回 Claims
+    public Claims parse(String token)
     {
         return Jwts.parser()
-                .setSigningKey(SECRET)
+                .setSigningKey(secret)
                 .parseClaimsJws(token)
                 .getBody();
     }
 
-    /** 从 token 中提取 userId */
-    public static Long getUserId(String token)
-
+    // 从 token 提取 userId
+    public Long getUserId(String token)
     {
         return Long.parseLong(parse(token).getSubject());
     }
 
-    /** 校验 token 是否有效，true=有效 false=过期/伪造 */
-    public static boolean validate(String token)
+    // 校验 token 是否有效
+    public boolean validate(String token)
     {
         try
         {

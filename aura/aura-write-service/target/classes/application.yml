@@ -1,15 +1,23 @@
 server:
   port: 8082
 
+jwt:
+  secret: Reddit
+
 spring:
   application:
     name: aura-write-service
-  cloud:
-    nacos:
-      server-addr: 127.0.0.1:8848
-      discovery:
-        service: ${spring.application.name}
-        fail-fast: false
+  devtools:
+    restart:
+      exclude: static/**,public/**,templates/**,mapper/**
+      additional-paths: src/main/java
+    livereload:
+      enabled: false
+  threads:
+    virtual:
+      enabled: true
+  inetutils:
+    preferred-networks: 127.0.0.1
   datasource:
     url: jdbc:postgresql://localhost:5432/aura
     username: root
@@ -20,7 +28,7 @@ spring:
       host: 127.0.0.1
       port: 6379
       password: 123456
-      database: 0
+      database: 1
       timeout: 2000ms
       lettuce:
         pool:
@@ -33,6 +41,18 @@ spring:
     port: 5672
     username: guest
     password: guest
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
+      discovery:
+        service: ${spring.application.name}
+        fail-fast: false
+        ip: 127.0.0.1
+    sentinel:
+      enabled: true
+      transport:
+        dashboard: 127.0.0.1:8080
+        port: 8721
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml

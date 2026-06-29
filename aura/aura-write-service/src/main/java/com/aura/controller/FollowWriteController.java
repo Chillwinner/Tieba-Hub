@@ -5,7 +5,7 @@ import com.aura.service.FollowService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-/** 关注写操作 */
+// 关注写操作接口
 @RestController
 @RequestMapping("/api/write/follow")
 public class FollowWriteController
@@ -14,7 +14,7 @@ public class FollowWriteController
     @Autowired
     private FollowService followService;
 
-    /** 关注 */
+    // 关注作者
     @PostMapping("/{authorId}")
     public Result follow(@PathVariable Long authorId)
     {
@@ -22,7 +22,7 @@ public class FollowWriteController
         return Result.success();
     }
 
-    /** 取消关注 */
+    // 取消关注
     @PostMapping("/unfollow/{authorId}")
     public Result unfollow(@PathVariable Long authorId)
     {

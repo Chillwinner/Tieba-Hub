@@ -2,6 +2,7 @@ package com.aura.gateway;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
@@ -13,17 +14,33 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
-/** 网关全局鉴权过滤器：解析 JWT → 透传 X-User-Id 到下游微服务 */
+// 全局鉴权过滤器，验证JWT并传递userId到下游微服务
 @Component
 public class AuthGlobalFilter implements GlobalFilter, Ordered
 {
 
-    private static final String SECRET = "aura-secret-key-2024-news-platform";
+    @Value("${jwt.secret}")
+    private String secret;
 
-    /** 放行白名单，不需要鉴权的路径 */
+    // 白名单路径，不需要鉴权（必须精确匹配）
     private static final String[] WHITE_LIST = {
-            "/api/user/register",
-            "/api/user/login"
+            "/api/write/user/register",
+            "/api/write/user/login"
+    };
+
+    // 公开读取路径前缀，不需要鉴权
+    private static final String[] PUBLIC_READ_PREFIXES = {
+            "/api/read/news/",
+            "/api/read/comment/",
+            "/api/read/user/",
+            "/api/read/follow/"
+    };
+
+    // 需要鉴权的路径前缀（白名单和公开读取都不匹配时，默认需要鉴权）
+    private static final String[] AUTH_REQUIRED_READ_PREFIXES = {
+            "/api/read/news/feed",
+            "/api/read/follow/counts",
+            "/api/read/follow/following"
     };
 
     @Override
@@ -32,44 +49,74 @@ public class AuthGlobalFilter implements GlobalFilter, Ordered
         ServerHttpRequest request = exchange.getRequest();
         String path = request.getURI().getPath();
 
-        // 白名单路径直接放行
+        // 清理客户端传入的 UserId，防止伪造
+        ServerHttpRequest cleanedRequest = request.mutate()
+                .headers(headers -> headers.remove("UserId"))
+                .build();
+        ServerWebExchange cleanedExchange = exchange.mutate().request(cleanedRequest).build();
+
+        // 白名单精确匹配直接放行
         for (String white : WHITE_LIST)
         {
-            if (path.contains(white))
+            if (path.equals(white))
             {
-                return chain.filter(exchange);
+                return chain.filter(cleanedExchange);
             }
         }
 
-        // 获取 Authorization 请求头
-        String authHeader = request.getHeaders().getFirst(HttpHeaders.AUTHORIZATION);
+        // 检查是否需要鉴权的读路径
+        boolean needAuth = false;
+        for (String prefix : AUTH_REQUIRED_READ_PREFIXES)
+        {
+            if (path.startsWith(prefix))
+            {
+                needAuth = true;
+                break;
+            }
+        }
+
+        // 不在强制鉴权列表中，检查是否为公开读取
+        if (!needAuth)
+        {
+            for (String prefix : PUBLIC_READ_PREFIXES)
+            {
+                if (path.startsWith(prefix))
+                {
+                    return chain.filter(cleanedExchange);
+                }
+            }
+            needAuth = true;
+        }
+
+        // 获取Authorization请求头
+        String authHeader = cleanedRequest.getHeaders().getFirst(HttpHeaders.AUTHORIZATION);
         if (authHeader == null || !authHeader.startsWith("Bearer "))
         {
-            ServerHttpResponse response = exchange.getResponse();
+            ServerHttpResponse response = cleanedExchange.getResponse();
             response.setStatusCode(HttpStatus.UNAUTHORIZED);
             return response.setComplete();
         }
 
-        // 解析 JWT
+        // 解析JWT
         try
         {
             String token = authHeader.substring(7);
             Claims claims = Jwts.parser()
-                    .setSigningKey(SECRET)
+                    .setSigningKey(secret)
                     .parseClaimsJws(token)
                     .getBody();
             String userId = claims.getSubject();
 
-            // 将 userId 透传到下游微服务
-            ServerHttpRequest mutatedRequest = request.mutate()
-                    .header("X-User-Id", userId)
+            // 将userId透传到下游服务
+            ServerHttpRequest mutatedRequest = cleanedRequest.mutate()
+                    .header("UserId", userId)
                     .build();
 
-            return chain.filter(exchange.mutate().request(mutatedRequest).build());
+            return chain.filter(cleanedExchange.mutate().request(mutatedRequest).build());
         }
         catch (Exception e)
         {
-            ServerHttpResponse response = exchange.getResponse();
+            ServerHttpResponse response = cleanedExchange.getResponse();
             response.setStatusCode(HttpStatus.UNAUTHORIZED);
             return response.setComplete();
         }

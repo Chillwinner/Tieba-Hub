@@ -6,7 +6,7 @@ import com.aura.service.NewsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-/** 新闻写操作 */
+// 新闻写操作接口
 @RestController
 @RequestMapping("/api/write/news")
 public class NewsWriteController
@@ -15,7 +15,7 @@ public class NewsWriteController
     @Autowired
     private NewsService newsService;
 
-    /** 发布新闻 */
+    // 发布新闻
     @PostMapping
     public Result createNews(@RequestBody News news)
     {
@@ -23,7 +23,7 @@ public class NewsWriteController
         return Result.success(news);
     }
 
-    /** 修改新闻 */
+    // 修改新闻
     @PutMapping("/{id}")
     public Result updateNews(@PathVariable Long id, @RequestBody News news)
     {
@@ -31,7 +31,7 @@ public class NewsWriteController
         return Result.success(news);
     }
 
-    /** 删除新闻 */
+    // 删除新闻
     @DeleteMapping("/{id}")
     public Result deleteNews(@PathVariable Long id)
     {
@@ -43,7 +43,7 @@ public class NewsWriteController
         return Result.success();
     }
 
-    /** 点赞新闻 */
+    // 点赞新闻
     @PostMapping("/{id}/like")
     public Result likeNews(@PathVariable Long id)
     {
