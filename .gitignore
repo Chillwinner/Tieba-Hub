@@ -1,0 +1,14 @@
+# === IDE ===
+.idea/
+*.iml
+
+# === Build ===
+**/target/
+
+# === 敏感配置文件（含密码/密钥）===
+**/src/main/resources/application.yml
+**/src/main/resources/application-local.yml
+**/src/main/resources/application-prod.yml
+
+# === 环境变量文件 ===
+.env

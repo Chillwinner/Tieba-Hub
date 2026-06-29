@@ -1,0 +1,66 @@
+server:
+  port: 8082
+
+jwt:
+  secret: YOUR_JWT_SECRET
+
+spring:
+  application:
+    name: aura-write-service
+  devtools:
+    restart:
+      exclude: static/**,public/**,templates/**,mapper/**
+      additional-paths: src/main/java
+    livereload:
+      enabled: false
+  threads:
+    virtual:
+      enabled: true
+  inetutils:
+    preferred-networks: 127.0.0.1
+  datasource:
+    url: jdbc:postgresql://localhost:5432/aura
+    username: YOUR_DB_USERNAME
+    password: YOUR_DB_PASSWORD
+    driver-class-name: org.postgresql.Driver
+  data:
+    redis:
+      host: 127.0.0.1
+      port: 6379
+      password: YOUR_REDIS_PASSWORD
+      database: 1
+      timeout: 2000ms
+      lettuce:
+        pool:
+          max-active: 100
+          max-idle: 50
+          min-idle: 10
+          max-wait: 1000ms
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: YOUR_RABBITMQ_USERNAME
+    password: YOUR_RABBITMQ_PASSWORD
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
+      discovery:
+        service: ${spring.application.name}
+        fail-fast: false
+        ip: 127.0.0.1
+    sentinel:
+      enabled: true
+      transport:
+        dashboard: 127.0.0.1:8080
+        port: 8721
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.aura.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+logging:
+  level:
+    com.aura.mapper: debug

@@ -1,0 +1,33 @@
+server:
+  port: 8080
+
+jwt:
+  secret: YOUR_JWT_SECRET
+
+spring:
+  application:
+    name: aura-gateway
+  inetutils:
+    preferred-networks: 127.0.0.1
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
+      discovery:
+        service: ${spring.application.name}
+        fail-fast: false
+        ip: 127.0.0.1
+    sentinel:
+      enabled: true
+      transport:
+        dashboard: 127.0.0.1:8080
+        port: 8719
+    gateway:
+      routes:
+        - id: read-service
+          uri: http://127.0.0.1:8081
+          predicates:
+            - Path=/api/read/**
+        - id: write-service
+          uri: http://127.0.0.1:8082
+          predicates:
+            - Path=/api/write/**
