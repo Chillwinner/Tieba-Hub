@@ -1,0 +1,377 @@
+Aura News Platform 后端 API 文档
+================================
+
+基本信息
+--------
+网关地址：http://localhost:8080
+所有请求都走网关，网关根据路径转发到对应微服务
+鉴权方式：JWT Bearer Token，放在 Authorization 请求头中
+白名单（不需要 token）：/api/write/user/register、/api/write/user/login
+
+统一返回格式
+------------
+{
+  "code": 200,
+  "message": "success",
+  "data": { ... }
+}
+
+- code = 200 表示成功
+- code != 200 表示失败，message 里有错误信息，data 为 null
+
+鉴权流程
+--------
+1. 调用登录接口拿到 token
+2. 后续所有请求在请求头加上：Authorization: Bearer <token>
+3. 网关自动解析 token，把 userId 通过 UserId 请求头传给下游服务
+4. 前端不需要手动传 userId，网关自动处理
+
+
+================================================================
+一、用户模块
+================================================================
+
+1. 注册
+-------
+POST /api/write/user/register
+
+请求体：
+{
+  "phone": "手机号",
+  "password": "密码",
+  "nickname": "昵称",
+  "email": "邮箱"
+}
+
+返回 data：
+{
+  "id": 1,
+  "phone": "手机号",
+  "password": null,
+  "nickname": "昵称",
+  "email": "邮箱",
+  "createTime": "2025-01-01T00:00:00"
+}
+
+注：password 不会返回给前端
+
+
+2. 登录
+-------
+POST /api/write/user/login?phone=手机号&password=密码
+
+参数：Query 参数 phone、password
+
+返回 data：
+"eyJhbGciOiJIUzI1NiJ9..."
+
+data 是一个 JWT token 字符串，后续请求放到 Authorization 头里
+
+
+3. 修改个人信息
+---------------
+PUT /api/write/user/profile
+
+请求体：
+{
+  "id": 1,
+  "nickname": "新昵称",
+  "email": "新邮箱"
+}
+
+返回 data：完整的 User 对象
+
+
+4. 查询用户
+-----------
+GET /api/read/user/{id}
+
+路径参数：id - 用户 ID
+
+返回 data：
+{
+  "id": 1,
+  "phone": "手机号",
+  "nickname": "昵称",
+  "email": "邮箱",
+  "createTime": "2025-01-01T00:00:00"
+}
+
+
+================================================================
+二、新闻模块
+================================================================
+
+5. 发布新闻
+-----------
+POST /api/write/news
+
+请求体：
+{
+  "title": "标题",
+  "content": "内容"
+}
+
+authorId 不需要传，从 JWT token 中自动获取
+
+返回 data：
+{
+  "id": 1,
+  "title": "标题",
+  "content": "内容",
+  "authorId": 1,
+  "likeCount": 0,
+  "createTime": "2025-01-01T00:00:00"
+}
+
+
+6. 修改新闻
+-----------
+PUT /api/write/news/{id}
+
+路径参数：id - 新闻 ID
+
+请求体：
+{
+  "title": "新标题",
+  "content": "新内容"
+}
+
+返回 data：完整的 News 对象
+
+
+7. 删除新闻
+-----------
+DELETE /api/write/news/{id}
+
+路径参数：id - 新闻 ID
+
+返回 data：null
+
+
+8. 点赞新闻
+-----------
+POST /api/write/news/{id}/like
+
+路径参数：id - 新闻 ID
+
+返回 data：null
+
+
+9. 查询单条新闻
+---------------
+GET /api/read/news/{id}
+
+路径参数：id - 新闻 ID
+
+返回 data：News 对象
+
+
+10. 全局新闻时间线（分页）
+--------------------------
+GET /api/read/news/all?page=1&size=20
+
+Query 参数：
+- page：页码，默认 1
+- size：每页数量，默认 20
+
+返回 data：News 对象数组
+
+
+11. 个人 Feed 流（分页）
+-------------------------
+GET /api/read/news/feed?page=1&size=20
+
+Query 参数：同上
+
+返回 data：News 对象数组（只包含关注的人的新闻）
+
+
+12. 查询某用户的新闻
+---------------------
+GET /api/read/news/author/{authorId}
+
+路径参数：authorId - 作者 ID
+
+返回 data：News 对象数组
+
+
+================================================================
+三、评论模块
+================================================================
+
+13. 发表评论
+------------
+POST /api/write/comment
+
+请求体：
+{
+  "newsId": 1,
+  "content": "评论内容",
+  "parentId": null
+}
+
+- newsId：必填，新闻 ID
+- content：必填，评论内容
+- parentId：可选，父评论 ID（不填为一级评论，填了为回复）
+
+userId 从 JWT token 自动获取
+
+返回 data：
+{
+  "id": 1,
+  "newsId": 1,
+  "userId": 1,
+  "content": "评论内容",
+  "parentId": null,
+  "likeCount": 0,
+  "createTime": "2025-01-01T00:00:00",
+  "userNickname": "昵称",
+  "replies": []
+}
+
+
+14. 修改评论
+------------
+PUT /api/write/comment/{id}
+
+路径参数：id - 评论 ID
+
+请求体：
+{
+  "content": "修改后的评论内容"
+}
+
+返回 data：完整的 Comment 对象
+
+
+15. 删除评论
+------------
+DELETE /api/write/comment/{id}
+
+路径参数：id - 评论 ID
+
+返回 data：null
+
+
+16. 点赞评论
+------------
+POST /api/write/comment/{id}/like
+
+路径参数：id - 评论 ID
+
+返回 data：null
+
+
+17. 查询新闻的评论树
+---------------------
+GET /api/read/comment/news/{newsId}
+
+路径参数：newsId - 新闻 ID
+
+返回 data：评论树（嵌套结构）
+[
+  {
+    "id": 1,
+    "newsId": 1,
+    "userId": 1,
+    "content": "一级评论",
+    "parentId": null,
+    "likeCount": 5,
+    "createTime": "2025-01-01T00:00:00",
+    "userNickname": "用户A",
+    "replies": [
+      {
+        "id": 2,
+        "newsId": 1,
+        "userId": 2,
+        "content": "回复一级评论",
+        "parentId": 1,
+        "likeCount": 2,
+        "createTime": "2025-01-01T01:00:00",
+        "userNickname": "用户B",
+        "replies": []
+      }
+    ]
+  }
+]
+
+
+================================================================
+四、关注模块
+================================================================
+
+18. 关注作者
+------------
+POST /api/write/follow/{authorId}
+
+路径参数：authorId - 要关注的作者 ID
+
+返回 data：null
+
+
+19. 取消关注
+------------
+POST /api/write/follow/unfollow/{authorId}
+
+路径参数：authorId - 要取消关注的作者 ID
+
+返回 data：null
+
+
+20. 获取当前用户的关注数和粉丝数
+--------------------------------
+GET /api/read/follow/counts
+
+返回 data：
+{
+  "followers": 100,
+  "following": 50
+}
+
+
+21. 获取当前用户关注的人列表
+----------------------------
+GET /api/read/follow/following
+
+返回 data：User 对象数组
+
+
+22. 获取某作者的粉丝列表
+-------------------------
+GET /api/read/follow/{authorId}/followers
+
+路径参数：authorId - 作者 ID
+
+返回 data：User 对象数组
+
+
+23. 检查当前用户是否关注了某作者
+--------------------------------
+GET /api/read/follow/check/{authorId}
+
+路径参数：authorId - 作者 ID
+
+返回 data：true 或 false
+
+
+================================================================
+实体结构速查
+================================================================
+
+User：id、phone、password、nickname、email、createTime
+News：id、title、content、authorId、likeCount、createTime
+Comment：id、newsId、userId、content、parentId、likeCount、createTime、userNickname、replies[]
+FollowCountsDTO：followers、following
+
+
+================================================================
+前端使用要点
+================================================================
+
+1. 登录后存储 token，每次请求带上 Authorization: Bearer <token>
+2. 写操作的 userId 都不需要前端传，网关从 token 解析后自动注入
+3. 评论是树形结构，replies 字段嵌套子评论，前端递归渲染即可
+4. Feed 流需要登录，全局时间线 /news/all 不需要
+5. 点赞是幂等的，重复点赞会取消（toggle 行为）
+6. 分页接口 page 从 1 开始，size 默认 20
